@@ -29,7 +29,7 @@ and clean
 * Uses `PROMPT_LEAN_LEFT` and `PROMPT_LEAN_RIGHT` to allow customization of the left
   and/or right side of the prompt.
 * For a configurable insertmode indicator, set the `PROMPT_LEAN_VIMODE` and `PROMPT_LEAN_VIMODE_FORMAT`
-variables. 
+variables.
   `PROMPT_LEAN_VIMODE_FORMAT` defaults to `"%F{red}[NORMAL]%f"`
 * Configurable colors to match your preferred scheme, by setting
   `PROMPT_LEAN_COLOR1` and `PROMPT_LEAN_COLOR2`
@@ -52,6 +52,7 @@ Installation
 
 zgen
 ---
+
 If you use [zgen](https://github.com/tarjoilija/zgen) you can add the following
 to your `~/.zshrc`:
 
@@ -66,6 +67,7 @@ Note you must have the option PROMPT_SUBST set, see zshoptions(1).
 prezto
 ---
 If you use [prezto](https://github.com/sorin-ionescu/prezto) you should do the following:
+
 ```
 cd ~/.zprezto/ \
 && git submodule add https://github.com/miekg/lean.git modules/prompt/external/lean 2>/dev/null \
@@ -73,9 +75,17 @@ cd ~/.zprezto/ \
 && cd modules/prompt/functions \
 && ln -s ../external/lean/prompt_lean_setup
 ```
+
 Then in `~/.zpreztorc`:
+
 ```
 zstyle ':prezto:module:prompt' theme 'lean'
 ```
+
 `PROMPT_LEAN_LEFT` and `PROMPT_LEAN_RIGHT` should be customized in `~/.zshrc`.
-The rest variables should be customized in `~/.zshenv`. 
+The rest variables should be customized in `~/.zshenv`.
+
+Development
+========
+
+If you make any changes please run `make test` to ensure the (little) test suite is succesfull.
