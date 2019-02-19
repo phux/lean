@@ -177,9 +177,10 @@ prompt_lean_setup() {
     add-zsh-hook preexec prompt_lean_preexec
 
     zstyle ':vcs_info:*' enable git
-    zstyle ':vcs_info:git*' formats "%s  %r/%S %b (%a) %m%u%c "
+    zstyle ':vcs_info:git*' formats "%{$fg[grey]%}%s %{$reset_color%}%r/%S%{$fg[grey]%} %{$fg[blue]%}%b%{$reset_color%}%m%u%c%{$reset_color%} "
+    zstyle ':vcs_info:git*' actionformats "%s  %r/%S %b (%a) %m%u%c "
     # zstyle ':vcs_info:git*' formats ' %b'
-    zstyle ':vcs_info:git*' actionformats ' %b|%a'
+    # zstyle ':vcs_info:git*' actionformats ' %b|%a'
 
     [[ "$SSH_CONNECTION" != '' ]] && prompt_lean_host=" %F{"$COLOR3"}%m%f"
     [[ "$TMUX" != '' ]] && prompt_lean_tmux=$PROMPT_LEAN_TMUX
